@@ -160,7 +160,25 @@ body {
   font-size:1.50vw ;
 }
 
-.userChats{
+.userChatsRight{
+  background-color: #311682f2  ;
+  color:white ;
+  width:20% ;
+  height:5% ;
+  font-size:1.75vw ;
+  margin-left:10% ;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top:5% ;
+  padding-top:2vw ;
+  padding-bottom:2vw ; 
+  border: solid;
+  border-color: white;
+  border-radius:0.70rem ;
+  justify-content: right;
+  margin-left:70% ;
+}
+
+.userChatsLeft{
   background-color: #1c123bf2  ;
   color:white ;
   width:20% ;
@@ -174,6 +192,7 @@ body {
   border: solid;
   border-color: white;
   border-radius:0.70rem ;
+  justify-content:left
 }
 
 .chatTime{

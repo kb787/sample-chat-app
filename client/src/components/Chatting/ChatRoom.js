@@ -26,6 +26,8 @@ const ChatRoom = ({socket,username,room}) => {
             alert('Cannot send blank message') ;
          }
    }
+   
+   
    useEffect(() => {
      socket.on("recieve_message",(data) => {
         setChats((item) => [...item,data])
@@ -39,7 +41,7 @@ const ChatRoom = ({socket,username,room}) => {
              {
                 chats?.map((chatItem) => {
                 return (
-                <div className = "userChats">   
+                <div className = {username === chatItem.author ? "userChatsRight":"userChatsLeft"}>   
                   <div className = "chatBodyUserId"
                   id = {username === chatItem.author ? "you":"other"}  
                   />

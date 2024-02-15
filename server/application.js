@@ -9,7 +9,13 @@ const {Server} = require('socket.io') ;
 const corsOptions = {
     "origin":"http://localhost:3000" 
 }
-const io = new Server(chatServer,corsOptions) ;
+const io = new Server(chatServer,{
+    cors: {
+      origin: "http://localhost:3000",
+      allowedHeaders: ["my-custom-header"],
+      credentials: true
+    }
+  }) ;
 
 io.on("connection",(socket) => {
     console.log(socket.id) ;
@@ -21,7 +27,7 @@ io.on("connection",(socket) => {
     )
 
     socket.on("send_message",(data) => {
-        socket.to(data.room).emit("recieve_message",data)
+        socket.to(data.room).emit("recieve_message",data) ;
     }
     )
 
@@ -30,8 +36,11 @@ io.on("connection",(socket) => {
     })
 })
 
-app.use(express.json())
-app.use(cors(corsOptions))
+app.use(express.json()) ;
+app.use(cors(corsOptions)) ;
+chatApp.use(express.json()) ;
+
+
 
 mainServer.listen("3500", () => {
       console.log("App launched Successfully") ;
