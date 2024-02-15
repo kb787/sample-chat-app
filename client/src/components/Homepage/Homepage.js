@@ -4,11 +4,11 @@ import { useState } from 'react';
 const socket = io.connect("http://localhost:4000") ;
 const Homepage = () => {
     const [username,setUsername] = useState('') ;
-    const [room,setRoom] = useState('') ;
+    const [room,setRoom] = useState(25) ;
     const [showChats,setShowChats] = useState(false) ;
 
     const joinRoom = () => {
-        if(username !== "" && room !== "")
+        if(username !== "")
         {
             socket.emit("join_room",room) ;
             setShowChats(true) ;
@@ -25,12 +25,12 @@ const Homepage = () => {
             </div>
             <div className = "featureCollectionItem">
                 <p className = "featureItemParagraph">
-                    Multiple Rooms
+                    Multiple User Connectivity
                 </p>
             </div>
             <div className = "featureCollectionItem">
                 <p className = "featureItemParagraph">
-                     Responsive Designing
+                     Quick Chatting
                 </p>
             </div>
         </div>  
@@ -50,14 +50,6 @@ const Homepage = () => {
               className="chatInputForm"
               onChange={(event) => {
                 setUsername(event.target.value);
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Enter ID of room you want to join"
-              className="chatInputForm"
-              onChange={(event) => {
-                setRoom(event.target.value);
               }}
             />
             <button onClick={joinRoom} className = "joiningButton">Join A Room</button>

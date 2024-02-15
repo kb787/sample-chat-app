@@ -16,10 +16,15 @@ const ChatRoom = ({socket,username,room}) => {
    }
    const handleSendChat = async (e) => {
          e.preventDefault() ; 
+         if(message !== ""){
          setMessage('') ;
          await socket.emit("send_message", messageData);
-         setMessage((list) => [...list, messageData]);
-         setChats("");
+         setChats((list) => [...list, messageData]);
+         setMessage("");
+         }
+         else {
+            alert('Cannot send blank message') ;
+         }
    }
    useEffect(() => {
      socket.on("recieve_message",(data) => {
@@ -38,12 +43,12 @@ const ChatRoom = ({socket,username,room}) => {
                   <div className = "chatBodyUserId"
                   id = {username === chatItem.author ? "you":"other"}  
                   />
+                  <p className = "chatAuthor">Username : {chatItem.author}</p>
                   <p className = "chatBodyMessage">
                   {chatItem.message}
                   </p> 
                   <div className = "chatExtraContent">
                      <p className = "chatTime">{chatItem.time}</p>
-                     <p className = "chatAuthor">{chatItem.author}</p>
                   </div>
                   </div>   
                 )
