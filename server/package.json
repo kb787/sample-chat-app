@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1" ,
     "start": "node application.js" , 
     "server": "nodemon server.js" ,
+    "build" : "npm i" ,
     "dev":"concurrently \"npm start\" \"npm run client\"" 
   },
   "keywords": [],
