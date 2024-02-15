@@ -40,9 +40,9 @@ io.on("connection",(socket) => {
 app.use(express.json()) ;
 app.use(cors(corsOptions)) ;
 chatApp.use(express.json()) ;
-app.use(express.static(path.join(__dirname,'./client/build'))) ;
+app.use(express.static(path.join(__dirname,'D:/internship-task-chatty/client/build'))) ;
 app.use("*",function(req,res){
-    res.sendFile(path.join(__dirname,"./client/build/index.html")) ;
+    res.sendFile(path.join(__dirname,"D:/internship-task-chatty/client/build/index.html")) ;
 })
 
 
