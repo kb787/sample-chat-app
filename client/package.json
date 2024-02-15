@@ -15,7 +15,10 @@
     "socket.io-client": "^4.7.4",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "http://kb787.github.io/sample-chat-app", 
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
