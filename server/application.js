@@ -6,6 +6,7 @@ const mainServer = http.createServer(app) ;
 const chatServer = http.createServer(chatApp) ;
 const cors = require('cors') ;
 const {Server} = require('socket.io') ;
+const path = require('path') ;
 const corsOptions = {
     "origin":"http://localhost:3000" 
 }
@@ -39,6 +40,10 @@ io.on("connection",(socket) => {
 app.use(express.json()) ;
 app.use(cors(corsOptions)) ;
 chatApp.use(express.json()) ;
+app.use(express.static(path.join(__dirname,'./client/build'))) ;
+app.use("*",function(req,res){
+    res.sendFile(path.join(__dirname,"./client/build/index.html")) ;
+})
 
 
 
