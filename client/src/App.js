@@ -10,6 +10,7 @@ function App() {
      <Routes> 
        <Route path = "/ChatRoom" element =  {<ChatRoom/>}/>
        <Route path = "/" element = {<Homepage/>} /> 
+       <Route path = "/sample-chat-app" element = {<Homepage/>} />
       </Routes> 
     </BrowserRouter>  
     </div>
