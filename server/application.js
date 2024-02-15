@@ -8,11 +8,11 @@ const cors = require('cors') ;
 const {Server} = require('socket.io') ;
 const path = require('path') ;
 const corsOptions = {
-    "origin":"https://kb787.github.io/sample-chat-app/" 
+    "origin":"http://localhost:3000" 
 }
 const io = new Server(chatServer,{
     cors: {
-      origin: "https://kb787.github.io/sample-chat-app/",
+      origin: "http://localhost:3000",
       allowedHeaders: ["my-custom-header"],
       credentials: true
     }
