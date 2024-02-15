@@ -1,7 +1,8 @@
 import io from 'socket.io-client' ;
 import ChatRoom from '../Chatting/ChatRoom';
 import { useState } from 'react';
-const socket = io.connect("http://localhost:4000") ;
+// const socket = io.connect("http://localhost:4000") ;
+const socket = io.connect("https://chatty-product.onrender.com/") ;
 const Homepage = () => {
     const [username,setUsername] = useState('') ;
     const [room,setRoom] = useState(25) ;
